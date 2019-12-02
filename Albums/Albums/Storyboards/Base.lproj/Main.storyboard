@@ -107,13 +107,47 @@
                             </constraints>
                         </view>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="xAd-D2-JJO">
-                                <rect key="frame" x="0.0" y="208" width="414" height="43.5"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SongCell" rowHeight="123" id="xAd-D2-JJO" customClass="SongTableViewCell" customModule="Albums" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="208" width="414" height="123"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="xAd-D2-JJO" id="JCs-vD-B7c">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="123"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="hKS-HA-csD">
+                                            <rect key="frame" x="28" y="8" width="358" height="115"/>
+                                            <subviews>
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Song Title:" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rq5-RX-Nd0">
+                                                    <rect key="frame" x="0.0" y="0.0" width="358" height="33"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Duration:" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="weT-2E-PG0">
+                                                    <rect key="frame" x="0.0" y="41" width="358" height="33"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tpX-Rj-m8q">
+                                                    <rect key="frame" x="0.0" y="82" width="358" height="33"/>
+                                                    <state key="normal" title="Add Song"/>
+                                                    <connections>
+                                                        <action selector="addSongButton:" destination="xAd-D2-JJO" eventType="touchUpInside" id="awH-bk-I0X"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                        </stackView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="hKS-HA-csD" firstAttribute="top" secondItem="JCs-vD-B7c" secondAttribute="top" constant="8" id="V9J-1V-zNd"/>
+                                        <constraint firstItem="hKS-HA-csD" firstAttribute="leading" secondItem="JCs-vD-B7c" secondAttribute="leadingMargin" constant="8" id="et5-au-pd3"/>
+                                        <constraint firstAttribute="bottom" secondItem="hKS-HA-csD" secondAttribute="bottom" id="jZN-tr-bot"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="hKS-HA-csD" secondAttribute="trailing" constant="8" id="xmd-z8-4ci"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="durationTextField" destination="weT-2E-PG0" id="kZ6-iU-AGQ"/>
+                                    <outlet property="songTitleTextField" destination="rq5-RX-Nd0" id="QHy-fT-xfa"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
